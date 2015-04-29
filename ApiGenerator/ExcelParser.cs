@@ -30,7 +30,7 @@ namespace ApiGenerator
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 conn.Open();
-                DataTable schemaTable = conn.GetOleDbSchemaTable(System.Data.OleDb.OleDbSchemaGuid.Tables, null);
+                DataTable schemaTable = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
                 using (OleDbCommand cmd = new OleDbCommand(String.Format("SELECT * from [{0}]", schemaTable.Rows[0]["TABLE_NAME"]), conn))
                 {
                     using (OleDbDataReader rdr = cmd.ExecuteReader())
