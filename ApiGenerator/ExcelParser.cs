@@ -33,15 +33,11 @@ namespace ApiGenerator
                 if ("输入参数".Equals(column1))
                 {
                     prefix = inParamPrefix;
-                    if (null == paramList)
-                    {
-                        paramList = new List<Parameter>();
-                    }
-                    else
+                    if (null != paramList)
                     {
                         apiList.Add(new Api(paramList));
-                        paramList.Clear();
                     }
+                    paramList = new List<Parameter>();
                     continue;
                 }
                 if ("输出参数".Equals(column1))
