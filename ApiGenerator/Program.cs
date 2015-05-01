@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApiGenerator
 {
@@ -10,17 +7,26 @@ namespace ApiGenerator
     {
         static void Main(string[] args)
         {
-            var dt = ExcelParser.GetExcel("E:/workspace/Tradev/新建文件夹/ABOSS.xlsx");
-            IList<object> parameters = new List<object>();
-            parameters.Add(new
+            if (args.Length < 1)
             {
-                Name = "OUT_FID_JYS",
-                Definition = "599",
-                Required = "Y",
-                Comment = "交易所"
-            });
-            Api api = new Api(parameters);
-            Console.WriteLine(api.TransformText());
+                Console.WriteLine("Usage: ApiGenerator <fullPathToApiExcel>");
+                return;
+            }
+            try
+            {
+                IList<Api> apiList = ExcelParser.Parse(args[0]);
+                Console.WriteLine("解析到的API数: {0}", apiList.Count);
+                foreach (var api in apiList)
+                {
+                    Console.WriteLine("===============Start===============");
+                    Console.WriteLine(api.TransformText());
+                    Console.WriteLine("================End================");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
             Console.Read();
         }
     }

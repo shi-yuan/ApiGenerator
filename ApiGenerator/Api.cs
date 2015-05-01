@@ -28,8 +28,7 @@ namespace ApiGenerator
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"
-using System;
+            this.Write(@"using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,70 +36,76 @@ using System.Threading.Tasks;
 
 public class Api
 {
-    /// <summary>
-    /// 功能号
-    /// </summary>
-    public String Function { get ; set ; }
+	/// <summary>
+	/// 功能号
+	/// </summary>
+	public String Function { get ; set ; }
 
-    /// <summary>
-    /// 功能名称
-    /// </summary>
-    public String Name { get ; set ; }
+	/// <summary>
+	/// 功能名称
+	/// </summary>
+	public String Name { get ; set ; }
 
-    /// <summary>
-    /// 功能说明
-    /// </summary>
-    public String Comment { get ; set ; }
+	/// <summary>
+	/// 功能说明
+	/// </summary>
+	public String Comment { get ; set ; }
 
-    /// <summary>
-    /// 更新日期
-    /// </summary>
-    public String UpdateTime { get ; set ; }
+	/// <summary>
+	/// 更新日期
+	/// </summary>
+	public String UpdateTime { get ; set ; }
 
-    /// <summary>
-    /// 多结果集
-    /// </summary>
-    public String MultiResultSet { get ; set ; }
-
+	/// <summary>
+	/// 多结果集
+	/// </summary>
+	public String MultiResultSet { get ; set ; }
 	");
             
-            #line 41 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
+            #line 39 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
  foreach (var item in parameters)
 	{ 
             
             #line default
             #line hidden
-            this.Write("\t/// <summary>\r\n    /// 定义: ");
+            this.Write("\r\n\t/// <summary>\r\n\t/// 定义: ");
             
-            #line 44 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
+            #line 43 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Definition));
             
             #line default
             #line hidden
-            this.Write("\r\n    /// 必须: ");
+            this.Write("\r\n\t/// 必须: ");
             
-            #line 45 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
+            #line 44 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Required));
             
             #line default
             #line hidden
-            this.Write("\r\n    /// 说明: ");
+            this.Write("\r\n\t/// 说明: ");
             
-            #line 46 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
+            #line 45 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Comment));
             
             #line default
             #line hidden
-            this.Write("\r\n    /// </summary>\r\n    public String ");
+            this.Write("\r\n\t/// </summary>\r\n\tpublic ");
             
-            #line 48 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
+            #line 47 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(item.Type));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 47 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Name));
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n\t");
+            this.Write(" { get; set; } \r\n\t");
             
-            #line 49 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
+            #line 48 "E:\workspace\Tradev\新建文件夹\ApiGenerator\ApiGenerator\Api.tt"
 }
             
             #line default

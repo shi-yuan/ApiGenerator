@@ -3,8 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".txt" #>
-
+<#@ output extension=".cs" #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,38 +12,38 @@ using System.Threading.Tasks;
 
 public class Api
 {
-    /// <summary>
-    /// 功能号
-    /// </summary>
-    public String Function { get ; set ; }
+	/// <summary>
+	/// 功能号
+	/// </summary>
+	public String Function { get ; set ; }
 
-    /// <summary>
-    /// 功能名称
-    /// </summary>
-    public String Name { get ; set ; }
+	/// <summary>
+	/// 功能名称
+	/// </summary>
+	public String Name { get ; set ; }
 
-    /// <summary>
-    /// 功能说明
-    /// </summary>
-    public String Comment { get ; set ; }
+	/// <summary>
+	/// 功能说明
+	/// </summary>
+	public String Comment { get ; set ; }
 
-    /// <summary>
-    /// 更新日期
-    /// </summary>
-    public String UpdateTime { get ; set ; }
+	/// <summary>
+	/// 更新日期
+	/// </summary>
+	public String UpdateTime { get ; set ; }
 
-    /// <summary>
-    /// 多结果集
-    /// </summary>
-    public String MultiResultSet { get ; set ; }
-
+	/// <summary>
+	/// 多结果集
+	/// </summary>
+	public String MultiResultSet { get ; set ; }
 	<# foreach (var item in parameters)
 	{ #>
+
 	/// <summary>
-    /// 定义: <#= item.Definition #>
-    /// 必须: <#= item.Required #>
-    /// 说明: <#= item.Comment #>
-    /// </summary>
-    public String <#= item.Name #> { get; set; }
+	/// 定义: <#= item.Definition #>
+	/// 必须: <#= item.Required #>
+	/// 说明: <#= item.Comment #>
+	/// </summary>
+	public <#= item.Type #> <#= item.Name #> { get; set; } 
 	<#}#>	
 }
