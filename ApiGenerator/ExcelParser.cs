@@ -8,7 +8,7 @@ namespace ApiGenerator
 {
     class ExcelParser
     {
-        private static readonly String connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0;HDR=Yes;IMEX=2\"";
+        private static readonly String connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0;HDR=No;IMEX=2\"";
         private static readonly String inParamPrefix = "IN_";
         private static readonly String outParamPrefix = "OUT_";
 
